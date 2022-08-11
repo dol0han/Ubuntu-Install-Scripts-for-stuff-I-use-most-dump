@@ -36,19 +36,19 @@ sleep 11
 
 curl https://wordpress.org/latest.tar.gz | sudo -u www-data tar zx -C /srv/www 
 #
-#sudo touch /etc/apache2/sites-available/wordpress.conf && echo "<VirtualHost *:80> \n
- #   DocumentRoot /srv/www/wordpress \n
-  #  <Directory /srv/www/wordpress> \n
-   #     Options FollowSymLinks \n
-    #    AllowOverride Limit Options FileInfo \n
-     #   DirectoryIndex index.php \n
-    #    Require all granted \n
-   # </Directory> \n
-  #  <Directory /srv/www/wordpress/wp-content> \n
- #       Options FollowSymLinks \n
-#        Require all granted \n
-#    </Directory> \n
-#</VirtualHost>" >> /etc/apache2/sites-available/wordpress.conf
+sudo touch /etc/apache2/sites-available/wordpress.conf && echo "<VirtualHost *:80> \n
+    DocumentRoot /srv/www/wordpress \n
+    <Directory /srv/www/wordpress> \n
+        Options FollowSymLinks \n
+        AllowOverride Limit Options FileInfo \n
+        DirectoryIndex index.php \n
+        Require all granted \n
+    </Directory> \n
+    <Directory /srv/www/wordpress/wp-content> \n
+        Options FollowSymLinks \n
+        Require all granted \n
+    </Directory> \n
+</VirtualHost>" >> /etc/apache2/sites-available/wordpress.conf
 #
 sleep 11
 # Enable the site with:
